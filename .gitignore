@@ -1,0 +1,18 @@
+**/.venv/
+**/venv/
+**/ENV/
+.env
+
+# Настройки IDE на любом уровне
+**/.idea/
+**/.vscode/
+
+# Кэш Python и тестов
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+
+# Отчеты Allure и логи
+**/allure-results/
+**/allure-report/
+**/*.log
