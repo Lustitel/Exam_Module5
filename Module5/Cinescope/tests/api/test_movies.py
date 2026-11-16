@@ -281,7 +281,7 @@ class TestCreateMoviesPositive:
 @allure.description("Тест проверяет, корректно обрабатываются ошибки при передаче невалидного тела фильма")
 class TestCreateMoviesNegative:
 
-    @allure.title("Функция проверки выброса ошибки при недостающем поле в теле movie")
+    @allure.title("Функция проверки выброса ошибки при наличии недостающих полей в теле movie")
     @pytest.mark.api
     @pytest.mark.negative
     @pytest.mark.creation
