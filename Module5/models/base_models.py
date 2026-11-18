@@ -7,7 +7,7 @@ from datetime import datetime
 logger = logging.getLogger(__name__)
 
 EMAIL_PATTERN = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-MOVIE_NAME_PATTERN = r"^[a-zA-Zа-яА-ЯёЁ0-9\s.,:!?'\"()—–-]+$"
+MOVIE_NAME_PATTERN = r'^[a-zA-Zа-яА-ЯёЁ0-9\s.,:!?\'"()—–/#_&+-]+$'
 MOVIE_DESCRIPTION_PATTERN = r"^[a-zA-Zа-яА-ЯёЁ0-9\s.,:;!?'\"()—–\-«»\n\r]+$"
 URL_PATTERN = r"^https?://[^\s/$.?#].[^\s]*$"
 

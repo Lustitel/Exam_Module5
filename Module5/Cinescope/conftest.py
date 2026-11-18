@@ -41,12 +41,9 @@ def creation_user_data(test_user: TestUser) -> TestUser:
     return test_user.model_copy(update={"verified": True, "banned": False})
 
 @pytest.fixture(scope='function')
-def test_film(db_helper) -> Iterator[MovieCreate]:
-    movie = generate_film_data()
-    yield movie
-    movie_in_db = db_helper.get_movie_by_name(movie.name)
-    if movie_in_db:
-        db_helper.delete_movie(movie_in_db)
+def test_film() -> MovieCreate:
+    return generate_film_data()
+
 
 @pytest.fixture(scope='function')
 def test_review():
@@ -69,9 +66,13 @@ def registered_user(api_manager, generate_registered_user):
     return generate_registered_user()
 
 @pytest.fixture(scope="function")
-def created_film(super_admin, test_film) -> MovieResponse:
+def created_film(super_admin, test_film, db_helper) -> Iterator[MovieResponse]:
     response = super_admin.api.movies_api.create_movie(test_film)
-    return MovieResponse(**response.json())
+    movie = MovieResponse(**response.json())
+    yield movie
+    movie_in_db = db_helper.get_movie_by_id(movie.id)
+    if movie_in_db:
+        db_helper.delete_movie(movie_in_db)
 
 @pytest.fixture(scope="session")
 def user_session():

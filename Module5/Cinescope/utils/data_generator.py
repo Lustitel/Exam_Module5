@@ -1,3 +1,5 @@
+import uuid
+
 from faker import Faker
 from datetime import timedelta, datetime, timezone
 import random
@@ -37,7 +39,7 @@ class DataGenerator:
 
     @staticmethod
     def generate_random_email():
-        return f"{random.randint(10000, 99999)}_{fake.email()}"
+        return f"user{uuid.uuid4().hex[:8]}@gmail.com"
 
     @staticmethod
     def generate_firstname():
