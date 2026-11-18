@@ -1,0 +1,13 @@
+pytest==9.1.1
+requests==2.34.2
+pytest-html==4.2.0
+faker==40.38.0
+python-dotenv
+pydantic
+sqlalchemy
+fastapi
+pytz
+uvicorn
+allure-python-commons
+pytest-check
+psycopg2
